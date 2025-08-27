@@ -36,9 +36,9 @@ function renderQuiz(quiz, user) {
         qDiv.innerHTML = `
           <fieldset>
         <legend style="font-size: 1.5rem; margin-bottom: 20px">Q${idx + 1}: ${q.pregunta}</legend>
+        <input type="hidden" id="q${idx}" name="q${idx}" value="${q.pregunta}">
         ${opciones.map(([key, value]) => `
           <label>
-            <input type="hidden" id="q${idx}" name="q${idx}" value="${q.pregunta}">
             <input type="radio" name="q${idx}" value="${key}" required>
             ${key}: ${value}
           </label>
