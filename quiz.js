@@ -1,7 +1,7 @@
 // quiz.js
 // Handles quiz rendering, timer, and cheat detection
 
-const hostPart = 'http://localhost:8787';
+const hostPart = 'https://quiz-worker.oscarformired.workers.dev';
 
 const quizForm = document.getElementById('quizForm');
 const quizQuestionsDiv = document.getElementById('quiz-questions');
