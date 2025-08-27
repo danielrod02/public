@@ -1,24 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-  <script defer src="/quiz.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --pico-font-family: "Arvo", serif;
+        }
+
+        button {
+            --pico-font-weight: 700;
+        }
+
+        #timer {
+            position: fixed;
+            right: 0px; top: 0px;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            background-color: black;
+            padding: 5px 10px;
+            color: wheat;
+        }
+    </style>
+    <script defer src="/quiz.js"></script>
 </head>
+
 <body>
-  <main class="container">
-    <h1>Quiz</h1>
-    <form id="quizForm" method="POST" action="/api/answer">
-      <div id="quiz-questions"></div>
-      <input type="hidden" id="user_id" name="user_id">
-      <input type="hidden" id="user_name" name="user_name">
-      <input type="hidden" id="user_email" name="user_email">
-      <div id="timer"></div>
-      <button type="submit">Submit Answers</button>
-    </form>
-    <div id="cheat-warning" style="color:red; display:none;">Cheating detected! You are blocked from taking the quiz.</div>
-  </main>
+    <main class="container">
+        <h1>Quiz</h1>
+        <div id="loader-message">Cargando... (esto puede tardar varios segundos)</div>
+        <progress id="loader"></progress>
+        <form id="quizForm" method="POST" action="http://localhost:8787/api/answer">
+            <div id="quiz-questions"></div>
+            <input type="hidden" id="user_id" name="user_id">
+            <input type="hidden" id="user_name" name="user_name">
+            <input type="hidden" id="user_email" name="user_email">
+            <div id="timer"></div>
+            <button type="submit">Submit Answers</button>
+        </form>
+        <div id="cheat-warning" style="color:red; display:none;">Cheating detected! You are blocked from taking the
+            quiz.</div>
+    </main>
 </body>
+
 </html>
